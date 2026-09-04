@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
+
+<title>Pixel Kingdom Adventure</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HOME ================= -->
+
+<section id="homeScreen" class="screen active">
+
+<div class="home-card">
+
+<div class="logo-area">
+
+<div class="logo-icon">🍄</div>
+
+<h1>
+PIXEL
+<span>KINGDOM</span>
+</h1>
+
+<p>ADVENTURE</p>
+
+</div>
+
+
+<div class="login-card">
+
+<h2>READY TO PLAY?</h2>
+
+<p class="description">
+Masukkan nama dan password untuk bermain
+</p>
+
+
+<label>Nama Player</label>
+
+<input
+id="username"
+type="text"
+maxlength="20"
+placeholder="Contoh: Player"
+autocomplete="off"
+>
+
+
+<label>Password</label>
+
+<input
+id="password"
+type="password"
+maxlength="30"
+placeholder="Masukkan password"
+autocomplete="off"
+>
+
+
+<button
+id="startBtn"
+class="primary-btn">
+
+▶ MULAI BERMAIN
+
+</button>
+
+
+<button
+id="leaderboardBtn"
+class="secondary-btn">
+
+🏆 LEADERBOARD
+
+</button>
+
+</div>
+
+
+<div class="footer">
+PIXEL PLATFORMER • ORIGINAL GAME
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= GAME ================= -->
+
+<section id="gameScreen" class="screen">
+
+<div class="game-wrapper">
+
+
+<div class="game-header">
+
+<div class="player-info">
+
+<div class="avatar">
+🧑
+</div>
+
+<div>
+
+<small>PLAYER</small>
+
+<strong id="playerName">
+PLAYER
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<small>SCORE</small>
+
+<strong id="scoreText">
+0
+</strong>
+
+</div>
+
+
+<div class="stat">
+
+<small>COINS</small>
+
+<strong id="coinText">
+0
+</strong>
+
+</div>
+
+
+<div class="stat">
+
+<small>WORLD</small>
+
+<strong>
+1-1
+</strong>
+
+</div>
+
+
+<div class="stat">
+
+<small>LIVES</small>
+
+<strong id="livesText">
+❤️ 3
+</strong>
+
+</div>
+
+
+<button
+id="soundBtn"
+class="sound-btn">
+
+🔊
+
+</button>
+
+</div>
+
+
+<div id="gameContainer">
+
+<canvas id="gameCanvas"></canvas>
+
+
+<div
+id="gameMessage"
+class="game-message hidden">
+
+<div class="message-card">
+
+<div
+id="messageIcon"
+class="message-icon">
+
+💥
+
+</div>
+
+
+<h2 id="messageTitle">
+GAME OVER
+</h2>
+
+
+<p id="messageText">
+Petualangan selesai.
+</p>
+
+
+<div class="result-box">
+
+<div>
+
+<span>SCORE</span>
+
+<strong id="finalScore">
+0
+</strong>
+
+</div>
+
+
+<div>
+
+<span>COINS</span>
+
+<strong id="finalCoins">
+0
+</strong>
+
+</div>
+
+</div>
+
+
+<button
+id="restartBtn"
+class="primary-btn">
+
+🔄 MAIN LAGI
+
+</button>
+
+
+<button
+id="homeBtn"
+class="secondary-btn">
+
+🏠 MENU UTAMA
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="mobile-controls">
+
+<button id="leftBtn">
+◀
+</button>
+
+<button id="jumpBtn">
+▲
+</button>
+
+<button id="rightBtn">
+▶
+</button>
+
+</div>
+
+
+<div class="game-tip">
+
+PC: ← → bergerak • SPACE lompat
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= LEADERBOARD ================= -->
+
+<section
+id="leaderboardScreen"
+class="screen">
+
+<div class="leaderboard-card">
+
+<button
+id="closeLeaderboard"
+class="close-btn">
+
+✕
+
+</button>
+
+
+<div class="leader-heading">
+
+<div class="trophy">
+🏆
+</div>
+
+<div>
+
+<h1>
+LEADERBOARD
+</h1>
+
+<p>
+TOP PLAYERS
+</p>
+
+</div>
+
+</div>
+
+
+<div id="leaderboardList">
+
+<div class="loading">
+Memuat leaderboard...
+</div>
+
+</div>
+
+
+<button
+id="refreshLeaderboard"
+class="secondary-btn">
+
+🔄 REFRESH
+
+</button>
+
+</div>
+
+</section>
+
+
+<script src="api.js"></script>
+<script src="game.js"></script>
+
+</body>
+  </html>
