@@ -1,0 +1,956 @@
+* {
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+:root {
+
+--background:#070a16;
+--card:rgba(18,24,45,.94);
+
+--primary:#7657ff;
+--purple:#b14dff;
+
+--cyan:#00e5ff;
+
+--text:#fff;
+--muted:#9ba5c2;
+
+--border:rgba(255,255,255,.1);
+
+}
+
+html,
+body {
+
+width:100%;
+min-height:100%;
+
+}
+
+body {
+
+background:
+
+radial-gradient(
+circle at 10% 10%,
+#20286b,
+transparent 30%
+),
+
+radial-gradient(
+circle at 90% 80%,
+#42145c,
+transparent 30%
+),
+
+var(--background);
+
+color:var(--text);
+
+font-family:
+Arial,
+Helvetica,
+sans-serif;
+
+overflow-x:hidden;
+
+}
+
+
+button {
+
+border:none;
+
+cursor:pointer;
+
+font-family:inherit;
+
+font-weight:bold;
+
+-webkit-tap-highlight-color:
+transparent;
+
+}
+
+
+/* ================= SCREEN ================= */
+
+.screen {
+
+width:100%;
+min-height:100vh;
+
+display:none;
+
+align-items:center;
+justify-content:center;
+
+padding:20px;
+
+}
+
+.screen.active {
+
+display:flex;
+
+}
+
+
+/* ================= HOME ================= */
+
+.home-card {
+
+width:min(450px,100%);
+
+padding:35px;
+
+background:var(--card);
+
+border:1px solid var(--border);
+
+border-radius:28px;
+
+backdrop-filter:blur(20px);
+
+box-shadow:
+0 30px 90px rgba(0,0,0,.55);
+
+animation:appear .5s ease;
+
+}
+
+
+@keyframes appear {
+
+from {
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to {
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+.logo-area {
+
+text-align:center;
+
+margin-bottom:28px;
+
+}
+
+
+.logo-icon {
+
+font-size:65px;
+
+margin-bottom:8px;
+
+filter:
+drop-shadow(
+0 0 20px
+rgba(255,255,255,.25)
+);
+
+}
+
+
+.logo-area h1 {
+
+font-size:42px;
+
+line-height:.82;
+
+letter-spacing:-2px;
+
+}
+
+
+.logo-area h1 span {
+
+display:block;
+
+color:var(--cyan);
+
+}
+
+
+.logo-area p {
+
+margin-top:15px;
+
+color:var(--purple);
+
+font-weight:bold;
+
+letter-spacing:8px;
+
+}
+
+
+.login-card h2 {
+
+text-align:center;
+
+margin-bottom:6px;
+
+}
+
+
+.description {
+
+text-align:center;
+
+font-size:13px;
+
+color:var(--muted);
+
+margin-bottom:22px;
+
+}
+
+
+label {
+
+display:block;
+
+font-size:12px;
+
+margin-bottom:7px;
+
+color:#d3d8e8;
+
+}
+
+
+input {
+
+width:100%;
+
+height:52px;
+
+padding:0 15px;
+
+margin-bottom:15px;
+
+border-radius:14px;
+
+border:1px solid
+rgba(255,255,255,.1);
+
+outline:none;
+
+background:
+rgba(255,255,255,.055);
+
+color:white;
+
+font-size:14px;
+
+}
+
+
+input:focus {
+
+border-color:var(--cyan);
+
+box-shadow:
+0 0 0 3px
+rgba(0,229,255,.08);
+
+}
+
+
+.primary-btn,
+.secondary-btn {
+
+width:100%;
+
+height:52px;
+
+border-radius:14px;
+
+font-size:13px;
+
+}
+
+
+.primary-btn {
+
+color:white;
+
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--purple)
+);
+
+box-shadow:
+0 10px 30px
+rgba(118,87,255,.25);
+
+}
+
+
+.primary-btn:hover {
+
+transform:translateY(-2px);
+
+}
+
+
+.secondary-btn {
+
+margin-top:10px;
+
+color:white;
+
+background:
+rgba(255,255,255,.06);
+
+border:
+1px solid
+rgba(255,255,255,.1);
+
+}
+
+
+.footer {
+
+text-align:center;
+
+font-size:9px;
+
+color:var(--muted);
+
+margin-top:25px;
+
+letter-spacing:1px;
+
+}
+
+
+/* ================= GAME ================= */
+
+.game-wrapper {
+
+width:min(1500px,100%);
+
+}
+
+
+.game-header {
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+padding:10px;
+
+margin-bottom:10px;
+
+background:
+rgba(10,15,32,.95);
+
+border:1px solid var(--border);
+
+border-radius:15px;
+
+}
+
+
+.player-info {
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+margin-right:auto;
+
+}
+
+
+.avatar {
+
+width:38px;
+height:38px;
+
+display:grid;
+
+place-items:center;
+
+background:
+rgba(255,255,255,.08);
+
+border-radius:10px;
+
+}
+
+
+.player-info small,
+.stat small {
+
+display:block;
+
+color:var(--muted);
+
+font-size:8px;
+
+}
+
+
+.player-info strong,
+.stat strong {
+
+display:block;
+
+font-size:13px;
+
+margin-top:3px;
+
+}
+
+
+.stat {
+
+min-width:75px;
+
+text-align:center;
+
+}
+
+
+.sound-btn {
+
+width:40px;
+height:40px;
+
+border-radius:10px;
+
+background:
+rgba(255,255,255,.07);
+
+color:white;
+
+}
+
+
+/* ================= CANVAS ================= */
+
+#gameContainer {
+
+position:relative;
+
+width:100%;
+
+max-width:1500px;
+
+overflow:hidden;
+
+border-radius:18px;
+
+border:
+2px solid
+rgba(255,255,255,.13);
+
+background:#5fcfff;
+
+box-shadow:
+0 30px 80px
+rgba(0,0,0,.55);
+
+}
+
+
+#gameCanvas {
+
+display:block;
+
+width:100%;
+
+height:auto;
+
+aspect-ratio:16 / 8.72;
+
+image-rendering:pixelated;
+
+image-rendering:crisp-edges;
+
+}
+
+
+/* ================= MESSAGE ================= */
+
+.game-message {
+
+position:absolute;
+
+inset:0;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:
+rgba(3,6,15,.72);
+
+backdrop-filter:blur(7px);
+
+}
+
+
+.game-message.hidden {
+
+display:none;
+
+}
+
+
+.message-card {
+
+width:min(380px,90%);
+
+padding:30px;
+
+text-align:center;
+
+background:
+rgba(17,23,43,.98);
+
+border:1px solid var(--border);
+
+border-radius:23px;
+
+box-shadow:
+0 25px 70px
+rgba(0,0,0,.6);
+
+}
+
+
+.message-icon {
+
+font-size:50px;
+
+margin-bottom:8px;
+
+}
+
+
+.message-card h2 {
+
+font-size:26px;
+
+}
+
+
+.message-card p {
+
+font-size:13px;
+
+color:var(--muted);
+
+margin:8px 0 20px;
+
+}
+
+
+.result-box {
+
+display:flex;
+
+justify-content:center;
+
+gap:55px;
+
+margin-bottom:20px;
+
+}
+
+
+.result-box span {
+
+display:block;
+
+font-size:9px;
+
+color:var(--muted);
+
+}
+
+
+.result-box strong {
+
+display:block;
+
+font-size:26px;
+
+margin-top:3px;
+
+}
+
+
+/* ================= MOBILE CONTROL ================= */
+
+.mobile-controls {
+
+display:none;
+
+justify-content:center;
+
+gap:14px;
+
+margin-top:14px;
+
+}
+
+
+.mobile-controls button {
+
+width:75px;
+height:58px;
+
+border-radius:17px;
+
+background:
+rgba(255,255,255,.08);
+
+border:
+1px solid
+rgba(255,255,255,.1);
+
+color:white;
+
+font-size:21px;
+
+}
+
+
+.mobile-controls button:active {
+
+transform:scale(.93);
+
+background:
+rgba(118,87,255,.35);
+
+}
+
+
+.game-tip {
+
+text-align:center;
+
+color:var(--muted);
+
+font-size:10px;
+
+margin-top:8px;
+
+}
+
+
+/* ================= LEADERBOARD ================= */
+
+.leaderboard-card {
+
+position:relative;
+
+width:min(620px,100%);
+
+padding:30px;
+
+background:var(--card);
+
+border:1px solid var(--border);
+
+border-radius:25px;
+
+backdrop-filter:blur(20px);
+
+box-shadow:
+0 30px 80px
+rgba(0,0,0,.55);
+
+}
+
+
+.close-btn {
+
+position:absolute;
+
+top:18px;
+
+right:18px;
+
+width:37px;
+height:37px;
+
+border-radius:10px;
+
+background:
+rgba(255,255,255,.07);
+
+color:white;
+
+}
+
+
+.leader-heading {
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-bottom:25px;
+
+}
+
+
+.trophy {
+
+font-size:46px;
+
+}
+
+
+.leader-heading h1 {
+
+font-size:25px;
+
+}
+
+
+.leader-heading p {
+
+font-size:9px;
+
+letter-spacing:3px;
+
+color:var(--muted);
+
+}
+
+
+.leader-row {
+
+display:grid;
+
+grid-template-columns:
+45px 1fr 90px;
+
+align-items:center;
+
+gap:10px;
+
+padding:14px;
+
+margin-bottom:8px;
+
+background:
+rgba(255,255,255,.045);
+
+border:
+1px solid
+rgba(255,255,255,.06);
+
+border-radius:14px;
+
+}
+
+
+.rank {
+
+font-size:18px;
+
+font-weight:bold;
+
+}
+
+
+.rank-name {
+
+font-size:14px;
+
+font-weight:bold;
+
+}
+
+
+.rank-date {
+
+font-size:9px;
+
+color:var(--muted);
+
+margin-top:3px;
+
+}
+
+
+.rank-score {
+
+text-align:right;
+
+font-weight:bold;
+
+color:var(--cyan);
+
+}
+
+
+.loading {
+
+padding:30px;
+
+text-align:center;
+
+color:var(--muted);
+
+}
+
+
+/* ================= TABLET ================= */
+
+@media(max-width:900px) {
+
+.game-wrapper {
+
+width:100%;
+
+}
+
+}
+
+
+/* ================= PHONE ================= */
+
+@media(max-width:700px) {
+
+.screen {
+
+padding:8px;
+
+}
+
+
+.home-card {
+
+padding:25px 18px;
+
+}
+
+
+.logo-area h1 {
+
+font-size:36px;
+
+}
+
+
+.player-info {
+
+display:none;
+
+}
+
+
+.game-header {
+
+gap:3px;
+
+padding:7px;
+
+}
+
+
+.stat {
+
+flex:1;
+
+min-width:0;
+
+}
+
+
+.stat strong {
+
+font-size:11px;
+
+}
+
+
+.sound-btn {
+
+flex-shrink:0;
+
+}
+
+
+.mobile-controls {
+
+display:flex;
+
+}
+
+
+.game-tip {
+
+display:none;
+
+}
+
+
+#gameContainer {
+
+border-radius:12px;
+
+}
+
+
+#gameCanvas {
+
+width:100%;
+
+height:auto;
+
+aspect-ratio:16 / 8.72;
+
+}
+
+
+.leaderboard-card {
+
+padding:22px 15px;
+
+}
+
+
+.leader-row {
+
+grid-template-columns:
+35px 1fr 75px;
+
+}
+
+}
