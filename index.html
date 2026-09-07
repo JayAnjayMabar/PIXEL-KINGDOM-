@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <meta name="theme-color" content="#070b18">
+
+  <title>Pixel Adventure</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!-- =====================================
+         START SCREEN
+    ====================================== -->
+
+    <section id="startScreen" class="screen active">
+
+      <div class="background-effects">
+        <span class="orb orb-1"></span>
+        <span class="orb orb-2"></span>
+        <span class="orb orb-3"></span>
+      </div>
+
+      <div class="menu-card">
+
+        <div class="brand">
+
+          <div class="brand-logo">
+            ★
+          </div>
+
+          <div class="brand-text">
+            <h1>PIXEL</h1>
+            <h2>ADVENTURE</h2>
+          </div>
+
+        </div>
+
+        <div class="brand-line"></div>
+
+        <p class="subtitle">
+          CLASSIC 2D PLATFORM ADVENTURE
+        </p>
+
+        <div class="form">
+
+          <label for="username">
+            NAMA PLAYER
+          </label>
+
+          <input
+            id="username"
+            type="text"
+            maxlength="20"
+            autocomplete="off"
+            placeholder="Masukkan nama player"
+          >
+
+          <label for="password">
+            PASSWORD
+          </label>
+
+          <input
+            id="password"
+            type="password"
+            maxlength="30"
+            placeholder="Masukkan password"
+          >
+
+        </div>
+
+        <button
+          id="startBtn"
+          class="btn btn-primary"
+        >
+          <span>▶</span>
+          MULAI BERMAIN
+        </button>
+
+        <button
+          id="leaderboardBtn"
+          class="btn btn-secondary"
+        >
+          <span>🏆</span>
+          LEADERBOARD
+        </button>
+
+        <button
+          id="musicBtn"
+          class="music-button"
+        >
+          🎵 SOUNDTRACK ON
+        </button>
+
+        <div
+          id="startError"
+          class="error-message"
+        ></div>
+
+        <div class="control-hint">
+
+          <div>
+            <b>PC</b>
+            A / D atau ← / →
+          </div>
+
+          <div>
+            <b>JUMP</b>
+            SPACE / ↑
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         GAME SCREEN
+    ====================================== -->
+
+    <section
+      id="gameScreen"
+      class="screen game-screen"
+    >
+
+      <div class="game-shell">
+
+        <canvas id="gameCanvas"></canvas>
+
+
+        <!-- HUD -->
+
+        <div class="hud">
+
+          <div class="hud-box">
+
+            <small>PLAYER</small>
+
+            <strong id="hudPlayer">
+              PLAYER
+            </strong>
+
+          </div>
+
+          <div class="hud-box">
+
+            <small>SCORE</small>
+
+            <strong id="hudScore">
+              0
+            </strong>
+
+          </div>
+
+          <div class="hud-box">
+
+            <small>COINS</small>
+
+            <strong id="hudCoins">
+              0
+            </strong>
+
+          </div>
+
+          <div class="hud-box">
+
+            <small>LIFE</small>
+
+            <strong
+              id="hudLives"
+              class="life-text"
+            >
+              ♥♥♥
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <!-- MOBILE CONTROL -->
+
+        <div class="mobile-controls">
+
+          <div class="direction-buttons">
+
+            <button
+              id="leftBtn"
+              class="game-control"
+            >
+              ◀
+            </button>
+
+            <button
+              id="rightBtn"
+              class="game-control"
+            >
+              ▶
+            </button>
+
+          </div>
+
+          <button
+            id="jumpBtn"
+            class="game-control jump-control"
+          >
+            ▲
+          </button>
+
+        </div>
+
+
+        <div class="game-message">
+          Kumpulkan coin • Hindari musuh • Capai bendera
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         END SCREEN
+    ====================================== -->
+
+    <section id="endScreen" class="screen">
+
+      <div class="result-card">
+
+        <div
+          id="resultIcon"
+          class="result-icon"
+        >
+          🏆
+        </div>
+
+        <div class="result-overline">
+          ADVENTURE RESULT
+        </div>
+
+        <h2 id="resultTitle">
+          LEVEL SELESAI
+        </h2>
+
+        <p id="resultPlayer">
+          PLAYER
+        </p>
+
+        <div class="final-score-box">
+
+          <span>
+            FINAL SCORE
+          </span>
+
+          <strong id="finalScore">
+            0
+          </strong>
+
+        </div>
+
+        <div class="result-stats">
+
+          <div class="result-stat">
+
+            <small>
+              COINS
+            </small>
+
+            <strong id="finalCoins">
+              0
+            </strong>
+
+          </div>
+
+          <div class="result-stat">
+
+            <small>
+              STATUS
+            </small>
+
+            <strong id="finalStatus">
+              FINISH
+            </strong>
+
+          </div>
+
+        </div>
+
+        <button
+          id="againBtn"
+          class="btn btn-primary"
+        >
+          🔄 MAIN LAGI
+        </button>
+
+        <button
+          id="endLeaderboardBtn"
+          class="btn btn-secondary"
+        >
+          🏆 LEADERBOARD
+        </button>
+
+        <button
+          id="backBtn"
+          class="btn btn-back"
+        >
+          ← BACK KE MENU
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         LEADERBOARD
+    ====================================== -->
+
+    <section
+      id="leaderboardScreen"
+      class="screen"
+    >
+
+      <div class="leader-card">
+
+        <div class="leader-header">
+
+          <div>
+
+            <span>
+              GLOBAL RANKING
+            </span>
+
+            <h2>
+              🏆 LEADERBOARD
+            </h2>
+
+          </div>
+
+          <button
+            id="closeLeaderboard"
+            class="close-btn"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <div
+          id="leaderboardList"
+          class="leaderboard-list"
+        >
+
+          <div class="leader-loading">
+            Memuat data...
+          </div>
+
+        </div>
+
+
+        <button
+          id="refreshLeaderboard"
+          class="btn btn-secondary"
+        >
+          🔄 REFRESH DATA
+        </button>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <script src="game.js"></script>
+
+</body>
+              </html>
